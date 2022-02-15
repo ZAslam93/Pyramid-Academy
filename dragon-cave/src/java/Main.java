@@ -10,12 +10,13 @@ public class Main {
 
     }
 
-    public static void intro() {
+    public static int intro() {
         System.out.println("You are in a land of dragons, in front of you,");
         System.out.println("you see two caves. In one cave the dragon is friendly");
         System.out.println("and will share his treasure with you. The other dragon");
         System.out.println("is greedy and hungry and will eat you on sight.");
         System.out.println("Which cave will you go into? 1 or 2");
+        return 0;
     }
 
     public static String choose(Scanner input) {
@@ -28,7 +29,7 @@ public class Main {
         return userChoice;
     }
 
-    public static void outcomes(String str) {
+    public static int outcomes(String str) {
         if (str.equals("1")) {
             System.out.println("You approach the cave...");
             System.out.println("It is dark and spooky...");
@@ -40,5 +41,6 @@ public class Main {
             System.out.println("A large dragon emerges from his eyrie! He flies down and...");
             System.out.println("Lifts a boulder, revealing a hoard of priceless jewels!");
         }
+        return 0;
     }
 }

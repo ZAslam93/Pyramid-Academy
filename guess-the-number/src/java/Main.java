@@ -20,7 +20,7 @@ public class Main {
         return str;
     }
 
-    public static void mainGame(Scanner input, String str) {
+    public static int mainGame(Scanner input, String str) {
         boolean playAgain = true;
         while (playAgain) {
             guess(input, str);
@@ -36,9 +36,10 @@ public class Main {
             assert yorN != null;
             if (!yorN.equals("y")) playAgain = false;
         }
+        return 0;
     }
 
-    public static void guess(Scanner input, String str) {
+    public static int guess(Scanner input, String str) {
         int randNum = (int) (Math.random() * 20);
         for (int i = 1; i <= 6; i++) {
             System.out.println("Take a guess.");
@@ -61,5 +62,6 @@ public class Main {
             }
             System.out.println("Guesses remaining: " + guessesLeft);
         }
+        return 0;
     }
 }
