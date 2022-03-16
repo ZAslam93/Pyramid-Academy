@@ -1,0 +1,10 @@
+cat
+dog
+man
+axe
+use
+win
+sue
+pea
+ink
+app
