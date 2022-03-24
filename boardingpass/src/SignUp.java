@@ -38,20 +38,9 @@ public class SignUp {
     public SignUp() {
         // submitButton will "save" all the data after ensuring proper input
         submitButton.addActionListener(e -> {
-            // TODO ensure proper input as per these specifications:
-            /*
-            ALL FIELDS are required for successful form submission
-            -Names should have alpha chars possibly with whitespaces. Max chars for the name field is 30
-            -Emails should end in @[domain name].com, with some chars preceding it.
-            -Phone numbers should take the form XXX-XXX-XXXX, only digits
-            -Radio buttons should be selected
-            -Date should be formatted XX/XX/XXXX, only digits
-            -Origin and Destination should be different
-            -Time should be formatted XX:XX, with a "max" time of 23:59 (using 24 hour format for timekeeping)
-             */
-
             // Consider providing useful error messages like "Name required" or "Invalid format" somewhere in GUI
             // If all tests pass, display success
+            // Save field values into a data structure, then handle file writing
             titleLabel.setText("Success! You may now close this window");
         });
 
