@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="SignUp">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="20" y="20" width="870" height="400"/>
+    </constraints>
+    <properties>
+      <background color="-13667975"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="8f19" class="javax.swing.JLabel" binding="titleLabel">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono Medium" size="18" style="0"/>
+          <text value="Enter your information for your boarding pass"/>
+        </properties>
+      </component>
+      <grid id="23a15" binding="formPanel" layout-manager="GridLayoutManager" row-count="3" column-count="10" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-15255492"/>
+        </properties>
+        <border type="etched"/>
+        <children>
+          <component id="405e6" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-4473925"/>
+              <enabled value="false"/>
+              <font name="Segoe UI Black" size="12" style="0"/>
+              <text value="Name"/>
+            </properties>
+          </component>
+          <component id="2ac8a" class="javax.swing.JTextField" binding="nameTextField" default-binding="true">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-5082567"/>
+              <font name="Segoe UI Black" size="12" style="1"/>
+              <foreground color="-4473925"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="8ef5d" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Segoe UI Black" size="12" style="0"/>
+              <text value="Email"/>
+            </properties>
+          </component>
+          <component id="c98d0" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Segoe UI Black" size="12" style="0"/>
+              <text value="Phone"/>
+            </properties>
+          </component>
+          <component id="619ac" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Segoe UI Black" size="12" style="0"/>
+              <text value="Gender"/>
+            </properties>
+          </component>
+          <component id="2480a" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Segoe UI Black" size="12" style="0"/>
+              <text value="Age"/>
+            </properties>
+          </component>
+          <component id="8893" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Segoe UI Black" size="12" style="0"/>
+              <text value="Date"/>
+            </properties>
+          </component>
+          <component id="9dcd5" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Segoe UI Black" size="12" style="0"/>
+              <text value="Origin"/>
+            </properties>
+          </component>
+          <component id="f07c0" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Segoe UI Black" size="12" style="0"/>
+              <text value="Destination"/>
+            </properties>
+          </component>
+          <component id="d98df" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Segoe UI Black" size="12" style="0"/>
+              <text value="Time"/>
+            </properties>
+          </component>
+          <component id="667df" class="javax.swing.JRadioButton" binding="otherRadioButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-11645362"/>
+              <font name="Segoe UI Black" size="12" style="1"/>
+              <text value="Other"/>
+            </properties>
+          </component>
+          <component id="fd9ea" class="javax.swing.JRadioButton" binding="femaleRadioButton">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-11645362"/>
+              <enabled value="true"/>
+              <font name="Segoe UI Black" size="12" style="1"/>
+              <text value="Female"/>
+            </properties>
+          </component>
+          <component id="6f7ee" class="javax.swing.JRadioButton" binding="maleRadioButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-11645362"/>
+              <font name="Segoe UI Black" size="12" style="1"/>
+              <text value="Male"/>
+            </properties>
+          </component>
+          <component id="3b371" class="javax.swing.JTextField" binding="departureTimeTextField" default-binding="true">
+            <constraints>
+              <grid row="2" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-5082567"/>
+              <font name="Segoe UI Black" size="14" style="0"/>
+              <foreground color="-4473925"/>
+              <text value=""/>
+              <toolTipText value="Format: xx:xx"/>
+            </properties>
+          </component>
+          <component id="9ced1" class="javax.swing.JComboBox" binding="originComboBox">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-5082567"/>
+              <font name="Segoe UI Black" size="14" style="0"/>
+              <foreground color="-4473925"/>
+              <model>
+                <item value=""/>
+                <item value="Alphonse Station"/>
+                <item value="Brego Station"/>
+                <item value="Charlotte Station"/>
+                <item value="Dumas Station"/>
+                <item value="Elgar Station"/>
+                <item value="Fiona Station"/>
+              </model>
+            </properties>
+          </component>
+          <component id="8028d" class="javax.swing.JComboBox" binding="destinationComboBox">
+            <constraints>
+              <grid row="2" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-5082567"/>
+              <font name="Segoe UI Black" size="14" style="0"/>
+              <foreground color="-4473925"/>
+              <model>
+                <item value=""/>
+                <item value="Alphonse Station"/>
+                <item value="Brego Station"/>
+                <item value="Charlotte Station"/>
+                <item value="Dumas Station"/>
+                <item value="Elgar Station"/>
+                <item value="Fiona Station"/>
+              </model>
+            </properties>
+          </component>
+          <component id="ad493" class="javax.swing.JTextField" binding="emailTextField" default-binding="true">
+            <constraints>
+              <grid row="0" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-5082567"/>
+              <font name="Segoe UI Black" size="12" style="1"/>
+              <foreground color="-4473925"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="6a818" class="javax.swing.JTextField" binding="phoneTextField">
+            <constraints>
+              <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-5082567"/>
+              <font name="Segoe UI Black" size="12" style="1"/>
+              <foreground color="-4473925"/>
+              <text value=""/>
+              <toolTipText value="Format: xxx-xxx-xxxx"/>
+            </properties>
+          </component>
+          <component id="64777" class="javax.swing.JSlider" binding="ageSlider">
+            <constraints>
+              <grid row="1" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-11645362"/>
+              <minimum value="1"/>
+              <snapToTicks value="false"/>
+              <value value="20"/>
+            </properties>
+          </component>
+          <component id="68244" class="javax.swing.JTextField" binding="ageLabel">
+            <constraints>
+              <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-5082567"/>
+              <enabled value="true"/>
+              <font name="Segoe UI Black" size="12" style="1"/>
+              <text value="Age"/>
+            </properties>
+          </component>
+          <component id="a15ac" class="javax.swing.JTextField" binding="dateTextField" default-binding="true">
+            <constraints>
+              <grid row="1" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-5082567"/>
+              <font name="Segoe UI Black" size="12" style="1"/>
+              <foreground color="-4473925"/>
+              <text value=""/>
+              <toolTipText value="Format: xx/xx/xxxx"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="7824c" binding="buttonPanel" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-15255492"/>
+        </properties>
+        <border type="etched"/>
+        <children>
+          <component id="a6789" class="javax.swing.JTextField" binding="estimatedPriceTextField" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="2" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1683653"/>
+              <editable value="false"/>
+              <font name="Segoe UI Black" size="16" style="0"/>
+              <foreground color="-4473925"/>
+              <text value="20"/>
+            </properties>
+          </component>
+          <component id="57362" class="javax.swing.JButton" binding="clearButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-11645362"/>
+              <font name="Segoe UI Black" size="14" style="1"/>
+              <text value="Clear"/>
+            </properties>
+          </component>
+          <component id="dab11" class="javax.swing.JButton" binding="submitButton" default-binding="true">
+            <constraints>
+              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-11645362"/>
+              <font name="Segoe UI Black" size="14" style="1"/>
+              <text value="Submit"/>
+            </properties>
+          </component>
+          <component id="a9106" class="javax.swing.JLabel" binding="railImage" custom-create="true">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="365d0" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Segoe UI Black" size="12" style="0"/>
+              <text value="Estimated Price"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="d8b0c" class="javax.swing.JLabel" binding="leftImage" custom-create="true">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="4f026" class="javax.swing.JLabel" binding="rightImage" custom-create="true">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="genderGroup">
+      <member id="6f7ee"/>
+      <member id="fd9ea"/>
+      <member id="667df"/>
+    </group>
+    <group name="ageGroup">
+      <member id="1226e"/>
+      <member id="fef39"/>
+      <member id="6fba9"/>
+    </group>
+  </buttonGroups>
+</form>
