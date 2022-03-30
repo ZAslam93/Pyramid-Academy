@@ -32,7 +32,7 @@ public class Application {
         ArrayList<Character> allGuesses = new ArrayList<>();
         String ansStr = "";
         // In this version six guesses are permitted
-        int guessCount = 1;
+        int guessCount = 0;
         while (guessCount < 6) {
             System.out.println(board[guessCount]);
             //System.out.println(answer);
@@ -62,7 +62,7 @@ public class Application {
         if (guessCount == 6) {
             System.out.println(board[6]);
             System.out.println("G A M E O V E R");
-            System.out.printf("The secret word was %s!", word);
+            System.out.printf("The secret word was %s!\n", word);
         }
         System.out.println("Do you want to play again? (yes or no)");
         String response = "";
