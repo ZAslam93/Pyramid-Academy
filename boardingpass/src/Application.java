@@ -1,5 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Application {
 
@@ -36,5 +42,68 @@ public class Application {
         frame.pack();
         frame.setVisible(true);
         System.out.println("HI");
+    }
+
+    public static void saveInfo(){
+
+        System.out.println("Good Job.");
+
+
+    }
+
+    //ensures phone numbers are set to a 3 digit, 3 digit, 4 digit format
+    public static boolean checkPhoneFormat(String input) {
+        final String REGEX = "\\d{3}-\\d{3}-\\d{4}";
+        Pattern p = Pattern.compile(REGEX);
+        Matcher m = p.matcher((input));
+
+        return m.matches();
+    }
+
+    //ensures that emails have a domain. Allows for a variety of domains, at the potential of an invalid email being used.
+    public static boolean checkEmailFormat(String text) {
+        final String REGEX = "\\S+@\\S+[.]\\S+";
+        Pattern p = Pattern.compile(REGEX);
+        Matcher m = p.matcher(text);
+
+        return m.matches();
+    }
+
+    //Checks to make sure that time field is formatted in HH:mm format. HH ensures 24hour time
+    public static boolean checkTimeField(String text) {
+        Date time = null;
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            time = sdf.parse(text);
+            if (!text.equals(sdf.format(time))) {
+                time = null;
+            }
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        if (time == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    //checks for date formatting in MM/dd/yyyy, 'cause America.
+    public static boolean checkDateFormat(String text) {
+        Date date = null;
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+            date = sdf.parse(text);
+            if (!text.equals(sdf.format(date))) {
+                date = null;
+            }
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        if (date == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
