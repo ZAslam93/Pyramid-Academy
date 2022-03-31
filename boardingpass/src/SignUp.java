@@ -36,6 +36,7 @@ public class SignUp {
 
 
     public SignUp() {
+        Ticket ticket = new Ticket();
         // submitButton will "save" all the data after ensuring proper input
         submitButton.addActionListener(e -> {
             // Consider providing useful error messages like "Name required" or "Invalid format" somewhere in GUI
@@ -79,6 +80,7 @@ public class SignUp {
                         departureTimeTextField.getText(),
                         getPRICE());
                 titleLabel.setText("Success! You may now close this window");
+                System.out.println(ticket.toString());
             }
         });
 

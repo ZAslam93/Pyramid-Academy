@@ -10,4 +10,9 @@ public class Ticket {
     public static String destination;
     public static String departure;
     public static double cost;
+
+    @Override
+    public String toString() {
+        return name+" "+email+" "+phone+" "+gender+" "+age+" "+date+" "+origin+" "+destination+" "+departure+" "+cost;
+    }
 }
