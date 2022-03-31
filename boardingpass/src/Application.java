@@ -44,8 +44,20 @@ public class Application {
         System.out.println("HI");
     }
 
-    public static void saveInfo(){
+    //Takes information from SignUp class and assigns them to the Ticket class to be saved to a file
+    public static void saveInfo(
+            String n, String e, String p, String g, int a, String d, String start, String finish, String t, double price){
 
+        Ticket.name = n;
+        Ticket.email = e;
+        Ticket.phone = p;
+        Ticket.gender = g;
+        Ticket.age = a;
+        Ticket.date = d;
+        Ticket.origin = start;
+        Ticket.destination = finish;
+        Ticket.departure = t;
+        Ticket.cost = price;
         System.out.println("Good Job.");
 
 

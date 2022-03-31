@@ -61,7 +61,23 @@ public class SignUp {
                 titleLabel.setText("Please enter your departure time in 24 hour HH:MM format.");
             } else {
                 // if all fields meet required formatting, and aren't empty, call on main class's saveInfo() method.
-                Application.saveInfo();
+                String gender = null;
+                if(maleRadioButton.isSelected())
+                    gender = "Male";
+                else if(femaleRadioButton.isSelected())
+                    gender = "female";
+                else if(otherRadioButton.isSelected())
+                    gender = "Other";
+                Application.saveInfo(
+                        nameTextField.getText(),
+                        emailTextField.getText(),
+                        phoneTextField.getText(),
+                        gender, age,
+                        dateTextField.getText(),
+                        originComboBox.getModel().toString(),
+                        destinationComboBox.getModel().toString(),
+                        departureTimeTextField.getText(),
+                        getPRICE());
                 titleLabel.setText("Success! You may now close this window");
             }
         });
