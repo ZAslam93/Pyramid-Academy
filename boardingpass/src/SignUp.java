@@ -2,6 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 
 //  	The user will be required to enter their Name, Email, Phone Number, Gender, Age, Date,
@@ -33,7 +38,8 @@ public class SignUp {
     private JTextField ageLabel;
     private final double PRICE = 20;
     private int age;
-
+    private String[] stations =
+            {"", "Alphonse Station", "Brego Station", "Charlotte Station", "Dumas Station", "Elgar Station", "Fiona Station"};
 
     public SignUp() {
         Ticket ticket = new Ticket();
@@ -66,19 +72,29 @@ public class SignUp {
                 if(maleRadioButton.isSelected())
                     gender = "Male";
                 else if(femaleRadioButton.isSelected())
-                    gender = "female";
+                    gender = "Female";
                 else if(otherRadioButton.isSelected())
                     gender = "Other";
-                Application.saveInfo(
-                        nameTextField.getText(),
-                        emailTextField.getText(),
-                        phoneTextField.getText(),
-                        gender, age,
-                        dateTextField.getText(),
-                        originComboBox.getModel().toString(),
-                        destinationComboBox.getModel().toString(),
-                        departureTimeTextField.getText(),
-                        getPRICE());
+                try {
+                    Application.saveInfo(getUniqueID(),
+                            nameTextField.getText(),
+                            emailTextField.getText(),
+                            phoneTextField.getText(),
+                            gender, age,
+                            dateTextField.getText(),
+                            stations[originComboBox.getSelectedIndex()],
+                            stations[destinationComboBox.getSelectedIndex()],
+                            departureTimeTextField.getText(),
+                            calculateETA(),
+                            getPRICE());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    getUniqueID();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 titleLabel.setText("Success! You may now close this window");
                 System.out.println(ticket.toString());
             }
@@ -323,6 +339,20 @@ public class SignUp {
 
     public double getPRICE() {
         return PRICE;
+    }
+
+    public String calculateETA() {
+        int timeStart = Integer.parseInt(departureTimeTextField.getText().substring(0,2));
+        return timeStart + Math.abs(originComboBox.getSelectedIndex() - destinationComboBox.getSelectedIndex()) +
+                departureTimeTextField.getText().substring(2,5);
+
+    }
+
+    public String getUniqueID() throws IOException {
+        List<String> data = Files.readAllLines(Paths.get("resources/tickets.csv"));
+        int newID = Integer.parseInt(data.get(data.size() - 1).split(",")[0]) + 1;
+        System.out.println("Unique ID for this user: " + newID);
+        return String.valueOf(newID);
     }
 
     public int getAge() {

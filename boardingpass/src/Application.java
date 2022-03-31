@@ -42,12 +42,14 @@ public class Application {
         frame.pack();
         frame.setVisible(true);
         System.out.println("HI");
+
     }
 
     //Takes information from SignUp class and assigns them to the Ticket class to be saved to a file
-    public static void saveInfo(
-            String n, String e, String p, String g, int a, String d, String start, String finish, String t, double price){
-
+    public static void saveInfo(String id,
+            String n, String e, String p, String g, int a, String d, String start, String finish,
+            String t, String eta, double price){
+        Ticket.id = id;
         Ticket.name = n;
         Ticket.email = e;
         Ticket.phone = p;
@@ -57,10 +59,9 @@ public class Application {
         Ticket.origin = start;
         Ticket.destination = finish;
         Ticket.departure = t;
+        Ticket.eta = eta;
         Ticket.cost = price;
         System.out.println("Good Job.");
-
-
     }
 
     //ensures phone numbers are set to a 3 digit, 3 digit, 4 digit format
