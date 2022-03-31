@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class Ticket {
     public static String id;
     public static String name;
@@ -16,5 +18,17 @@ public class Ticket {
     @Override
     public String toString() {
         return id+" "+name+" "+email+" "+phone+" "+gender+" "+age+" "+date+" "+origin+" "+destination+" "+departure+" "+eta+" "+cost;
+    }
+
+    public void writeTicket() throws IOException {
+        FileWriter ticketWriter = new FileWriter("G:\\GroupJavaProjects\\Pyramid-Academy\\boardingpass\\resources\\tickets.csv",true);
+        BufferedWriter buffWrite = new BufferedWriter(ticketWriter);
+        FileReader ticketReader = new FileReader("G:\\GroupJavaProjects\\Pyramid-Academy\\boardingpass\\resources\\tickets.csv");
+        try {
+            buffWrite.newLine();
+            buffWrite.write(id+","+name+","+email+","+phone+","+gender+","+age+","+date+","+origin+","+destination+","+departure+","+cost+","+eta);
+            buffWrite.close();} catch (IOException e) {
+            System.out.println("Error writing to CSV");
+        }
     }
 }

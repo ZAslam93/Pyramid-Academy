@@ -95,6 +95,11 @@ public class SignUp {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+                try {
+                    ticket.writeTicket();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 titleLabel.setText("Success! You may now close this window");
                 System.out.println(ticket.toString());
             }
