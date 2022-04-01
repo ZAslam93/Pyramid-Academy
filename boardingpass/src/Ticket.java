@@ -32,7 +32,7 @@ public class Ticket {
         //FileReader ticketReader = new FileReader("G:\\GroupJavaProjects\\Pyramid-Academy\\boardingpass\\resources\\tickets.csv");
         try {
             buffWrite.newLine();
-            buffWrite.write(id+","+name+","+email+","+phone+","+gender+","+age+","+date+","+origin+","+destination+","+departure+","+cost+","+eta);
+            buffWrite.write(id+","+name+","+email+","+phone+","+gender+","+age+","+date+","+origin+","+destination+","+departure+","+eta+","+cost);
             buffWrite.close();} catch (IOException e) {
             System.out.println("Error writing to CSV");
         }

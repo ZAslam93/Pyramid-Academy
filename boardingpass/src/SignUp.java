@@ -34,7 +34,6 @@ public class SignUp {
     private JTextField ageLabel;
     private final double PRICE = 20;
     private int age;
-    private double priceTemp;
 
     // Create a String array of stations for access via comboBox index
     private final String[] stations =
@@ -88,7 +87,7 @@ public class SignUp {
                             stations[destinationComboBox.getSelectedIndex()],
                             departureTimeTextField.getText(),
                             calculateETA(),
-                            priceTemp);
+                            Double.parseDouble(estimatedPriceTextField.getText()));
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -130,12 +129,10 @@ public class SignUp {
             age = ageSlider.getValue();
             ageLabel.setText(String.valueOf(age));
             if (age <= 12) {
-                priceTemp = PRICE * 0.50;
-                estimatedPriceTextField.setText(String.valueOf(priceTemp));
+                estimatedPriceTextField.setText(String.valueOf(PRICE * 0.50));
             }
             else if (age >= 60) {
-                priceTemp = PRICE * 0.40;
-                estimatedPriceTextField.setText(String.valueOf(priceTemp));
+                estimatedPriceTextField.setText(String.valueOf(PRICE * 0.40));
             }
             else if (femaleRadioButton.isSelected()) estimatedPriceTextField.setText(String.valueOf(PRICE * 0.75));
             else estimatedPriceTextField.setText(String.valueOf(PRICE));
@@ -145,8 +142,7 @@ public class SignUp {
         femaleRadioButton.addActionListener(e -> {
             if (femaleRadioButton.isSelected() &&
                     (age > 12 && age < 60)) {
-                priceTemp = PRICE * 0.75;
-                estimatedPriceTextField.setText(String.valueOf(priceTemp));
+                estimatedPriceTextField.setText(String.valueOf(PRICE * 0.75));
             }
         });
 
@@ -154,14 +150,12 @@ public class SignUp {
         maleRadioButton.addActionListener(e -> {
             if (maleRadioButton.isSelected() &&
                     (age > 12 && age < 60)) {
-                priceTemp = PRICE;
                 estimatedPriceTextField.setText(String.valueOf(PRICE));
             }
         });
         otherRadioButton.addActionListener(e -> {
             if (otherRadioButton.isSelected() &&
                     (age > 12 && age < 60)) {
-                priceTemp = PRICE;
                 estimatedPriceTextField.setText(String.valueOf(PRICE));
             }
         });

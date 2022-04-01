@@ -35,6 +35,7 @@ public class Application {
         Ticket.departure = t;
         Ticket.eta = eta;
         Ticket.cost = price;
+        System.out.println(price);
         System.out.println("Good Job.");
     }
 
