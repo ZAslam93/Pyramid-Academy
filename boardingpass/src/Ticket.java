@@ -29,7 +29,8 @@ public class Ticket {
     public void writeTicket() throws IOException {
         FileWriter ticketWriter = new FileWriter("resources/tickets.csv",true);
         BufferedWriter buffWrite = new BufferedWriter(ticketWriter);
-        //FileReader ticketReader = new FileReader("G:\\GroupJavaProjects\\Pyramid-Academy\\boardingpass\\resources\\tickets.csv");
+        //FileReader included for possible use later in lifecycle, to pull tickets based upon number.
+        //FileReader ticketReader = new FileReader("resources\tickets.csv");
         try {
             buffWrite.newLine();
             buffWrite.write(id+","+name+","+email+","+phone+","+gender+","+age+","+date+","+origin+","+destination+","+departure+","+eta+","+cost);
