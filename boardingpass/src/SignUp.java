@@ -1,18 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
-
 
 //  	The user will be required to enter their Name, Email, Phone Number, Gender, Age, Date,
 //      Origin Destination, and Departure Time into the console or GUI (teams’ preference).
 
-
+// Configure SignUp class via SignUp.form
 public class SignUp {
     protected JPanel mainPanel;
     private JLabel titleLabel;
@@ -38,16 +34,22 @@ public class SignUp {
     private JTextField ageLabel;
     private final double PRICE = 20;
     private int age;
-    private String[] stations =
+    private double priceTemp;
+
+    // Create a String array of stations for access via comboBox index
+    private final String[] stations =
             {"", "Alphonse Station", "Brego Station", "Charlotte Station", "Dumas Station", "Elgar Station", "Fiona Station"};
 
+    // Main functionality of SignUp GUI begins here
     public SignUp() {
+
+        // Create a new Ticket object to handle SignUp form data
         Ticket ticket = new Ticket();
+
         // submitButton will "save" all the data after ensuring proper input
         submitButton.addActionListener(e -> {
-            // Consider providing useful error messages like "Name required" or "Invalid format" somewhere in GUI
             // If all tests pass, display success
-            // Save field values into a data structure, then handle file writing
+            // Save field values into ticket object
             if(nameTextField.getText().isEmpty()) {
                 titleLabel.setText("Please type a name.");
             } else if(emailTextField.getText().isEmpty()&&phoneTextField.getText().isEmpty()) {
@@ -67,7 +69,7 @@ public class SignUp {
             } else if(!Application.checkTimeField(departureTimeTextField.getText())){
                 titleLabel.setText("Please enter your departure time in 24 hour HH:MM format.");
             } else {
-                // if all fields meet required formatting, and aren't empty, call on main class's saveInfo() method.
+                // If all fields meet required formatting, and aren't empty, call on main class's saveInfo() method.
                 String gender = null;
                 if(maleRadioButton.isSelected())
                     gender = "Male";
@@ -86,10 +88,12 @@ public class SignUp {
                             stations[destinationComboBox.getSelectedIndex()],
                             departureTimeTextField.getText(),
                             calculateETA(),
-                            getPRICE());
+                            priceTemp);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+
+                // After saving info, generate unique ID for the ticket
                 try {
                     getUniqueID();
                 } catch (IOException ex) {
@@ -101,7 +105,7 @@ public class SignUp {
                     ex.printStackTrace();
                 }
                 titleLabel.setText("Success! You may now close this window");
-                System.out.println(ticket.toString());
+                System.out.println(ticket);
             }
         });
 
@@ -121,41 +125,49 @@ public class SignUp {
             departureTimeTextField.setText("");
         });
 
+        // ageSlider ranges from 1 to 100, applies ticket discounts accordingly
         ageSlider.addChangeListener(e -> {
             age = ageSlider.getValue();
             ageLabel.setText(String.valueOf(age));
-            if (age <= 12) estimatedPriceTextField.setText(String.valueOf(PRICE * 0.50));
-            else if (age >= 60) estimatedPriceTextField.setText(String.valueOf(PRICE * 0.40));
+            if (age <= 12) {
+                priceTemp = PRICE * 0.50;
+                estimatedPriceTextField.setText(String.valueOf(priceTemp));
+            }
+            else if (age >= 60) {
+                priceTemp = PRICE * 0.40;
+                estimatedPriceTextField.setText(String.valueOf(priceTemp));
+            }
             else if (femaleRadioButton.isSelected()) estimatedPriceTextField.setText(String.valueOf(PRICE * 0.75));
             else estimatedPriceTextField.setText(String.valueOf(PRICE));
         });
 
+        // Apply the greatest discount only
         femaleRadioButton.addActionListener(e -> {
             if (femaleRadioButton.isSelected() &&
                     (age > 12 && age < 60)) {
-                estimatedPriceTextField.setText(String.valueOf(PRICE * 0.75));
+                priceTemp = PRICE * 0.75;
+                estimatedPriceTextField.setText(String.valueOf(priceTemp));
             }
         });
-        maleRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (maleRadioButton.isSelected() &&
-                        (age > 12 && age < 60)) {
-                    estimatedPriceTextField.setText(String.valueOf(PRICE));
-                }
+
+        // Male and Other do not get discounts on account of gender
+        maleRadioButton.addActionListener(e -> {
+            if (maleRadioButton.isSelected() &&
+                    (age > 12 && age < 60)) {
+                priceTemp = PRICE;
+                estimatedPriceTextField.setText(String.valueOf(PRICE));
             }
         });
-        otherRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (otherRadioButton.isSelected() &&
-                        (age > 12 && age < 60)) {
-                    estimatedPriceTextField.setText(String.valueOf(PRICE));
-                }
+        otherRadioButton.addActionListener(e -> {
+            if (otherRadioButton.isSelected() &&
+                    (age > 12 && age < 60)) {
+                priceTemp = PRICE;
+                estimatedPriceTextField.setText(String.valueOf(PRICE));
             }
         });
     }
 
+    // Add custom UI components (Images)
     private void createUIComponents() {
         // Render images, needs the main method for them to be visible
         leftImage = new JLabel(new ImageIcon(new ImageIcon("images/train.png").
@@ -166,205 +178,20 @@ public class SignUp {
                 getImage().getScaledInstance(200, 50, Image.SCALE_SMOOTH)));
     }
 
-    public JPanel getMainPanel() {
-        return mainPanel;
-    }
-
-    public void setMainPanel(JPanel mainPanel) {
-        this.mainPanel = mainPanel;
-    }
-
-    public JLabel getTitleLabel() {
-        return titleLabel;
-    }
-
-    public void setTitleLabel(JLabel titleLabel) {
-        this.titleLabel = titleLabel;
-    }
-
-    public JPanel getFormPanel() {
-        return formPanel;
-    }
-
-    public void setFormPanel(JPanel formPanel) {
-        this.formPanel = formPanel;
-    }
-
-    public JPanel getButtonPanel() {
-        return buttonPanel;
-    }
-
-    public void setButtonPanel(JPanel buttonPanel) {
-        this.buttonPanel = buttonPanel;
-    }
-
-    public JTextField getNameTextField() {
-        return nameTextField;
-    }
-
-    public void setNameTextField(JTextField nameTextField) {
-        this.nameTextField = nameTextField;
-    }
-
-    public JTextField getEmailTextField() {
-        return emailTextField;
-    }
-
-    public void setEmailTextField(JTextField emailTextField) {
-        this.emailTextField = emailTextField;
-    }
-
-    public JTextField getPhoneTextField() {
-        return phoneTextField;
-    }
-
-    public void setPhoneTextField(JTextField phoneTextField) {
-        this.phoneTextField = phoneTextField;
-    }
-
-    public JRadioButton getMaleRadioButton() {
-        return maleRadioButton;
-    }
-
-    public void setMaleRadioButton(JRadioButton maleRadioButton) {
-        this.maleRadioButton = maleRadioButton;
-    }
-
-    public JTextField getDateTextField() {
-        return dateTextField;
-    }
-
-    public void setDateTextField(JTextField dateTextField) {
-        this.dateTextField = dateTextField;
-    }
-
-    public JTextField getDepartureTimeTextField() {
-        return departureTimeTextField;
-    }
-
-    public void setDepartureTimeTextField(JTextField departureTimeTextField) {
-        this.departureTimeTextField = departureTimeTextField;
-    }
-
-    public JButton getSubmitButton() {
-        return submitButton;
-    }
-
-    public void setSubmitButton(JButton submitButton) {
-        this.submitButton = submitButton;
-    }
-
-    public JTextField getEstimatedPriceTextField() {
-        return estimatedPriceTextField;
-    }
-
-    public void setEstimatedPriceTextField(JTextField estimatedPriceTextField) {
-        this.estimatedPriceTextField = estimatedPriceTextField;
-    }
-
-    public JRadioButton getOtherRadioButton() {
-        return otherRadioButton;
-    }
-
-    public void setOtherRadioButton(JRadioButton otherRadioButton) {
-        this.otherRadioButton = otherRadioButton;
-    }
-
-    public JRadioButton getFemaleRadioButton() {
-        return femaleRadioButton;
-    }
-
-    public void setFemaleRadioButton(JRadioButton femaleRadioButton) {
-        this.femaleRadioButton = femaleRadioButton;
-    }
-
-    public JButton getClearButton() {
-        return clearButton;
-    }
-
-    public void setClearButton(JButton clearButton) {
-        this.clearButton = clearButton;
-    }
-
-    public JComboBox<String> getOriginComboBox() {
-        return originComboBox;
-    }
-
-    public void setOriginComboBox(JComboBox<String> originComboBox) {
-        this.originComboBox = originComboBox;
-    }
-
-    public JComboBox<String> getDestinationComboBox() {
-        return destinationComboBox;
-    }
-
-    public void setDestinationComboBox(JComboBox<String> destinationComboBox) {
-        this.destinationComboBox = destinationComboBox;
-    }
-
-    public JLabel getLeftImage() {
-        return leftImage;
-    }
-
-    public void setLeftImage(JLabel leftImage) {
-        this.leftImage = leftImage;
-    }
-
-    public JLabel getRightImage() {
-        return rightImage;
-    }
-
-    public void setRightImage(JLabel rightImage) {
-        this.rightImage = rightImage;
-    }
-
-    public JLabel getRailImage() {
-        return railImage;
-    }
-
-    public void setRailImage(JLabel railImage) {
-        this.railImage = railImage;
-    }
-
-    public JSlider getAgeSlider() {
-        return ageSlider;
-    }
-
-    public void setAgeSlider(JSlider ageSlider) {
-        this.ageSlider = ageSlider;
-    }
-
-    public JTextField getAgeLabel() {
-        return ageLabel;
-    }
-
-    public void setAgeLabel(JTextField ageLabel) {
-        this.ageLabel = ageLabel;
-    }
-
-    public double getPRICE() {
-        return PRICE;
-    }
-
+    // Stations are separated by an hour each (Alphonse to Brego is a 2-hour journey)
     public String calculateETA() {
         int timeStart = Integer.parseInt(departureTimeTextField.getText().substring(0,2));
-        return timeStart + Math.abs(originComboBox.getSelectedIndex() - destinationComboBox.getSelectedIndex()) +
-                departureTimeTextField.getText().substring(2,5);
-
+        int factoredTime = (timeStart + (Math.abs(originComboBox.getSelectedIndex() - destinationComboBox.getSelectedIndex()))) % 24;
+        System.out.println(factoredTime);
+        if (factoredTime < 10) return "0"+factoredTime + departureTimeTextField.getText().substring(2,5);
+        return factoredTime + departureTimeTextField.getText().substring(2,5);
     }
 
+    // IDs are auto-incremented, starting from 0
     public String getUniqueID() throws IOException {
         List<String> data = Files.readAllLines(Paths.get("resources/tickets.csv"));
         int newID = Integer.parseInt(data.get(data.size() - 1).split(",")[0]) + 1;
-        System.out.println("Unique ID for this user: " + newID);
+        //System.out.println("Unique ID for this user: " + newID);
         return String.valueOf(newID);
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 }
