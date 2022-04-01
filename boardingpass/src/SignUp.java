@@ -178,7 +178,7 @@ public class SignUp {
                 getImage().getScaledInstance(200, 50, Image.SCALE_SMOOTH)));
     }
 
-    // Stations are separated by an hour each (Alphonse to Brego is a 2-hour journey)
+    // Stations are separated by an hour each (Alphonse to Charlotte is a 2-hour journey)
     public String calculateETA() {
         int timeStart = Integer.parseInt(departureTimeTextField.getText().substring(0,2));
         int factoredTime = (timeStart + (Math.abs(originComboBox.getSelectedIndex() - destinationComboBox.getSelectedIndex()))) % 24;
@@ -187,7 +187,7 @@ public class SignUp {
         return factoredTime + departureTimeTextField.getText().substring(2,5);
     }
 
-    // IDs are auto-incremented, starting from 0
+    // IDs are auto-incremented starting from 0
     public String getUniqueID() throws IOException {
         List<String> data = Files.readAllLines(Paths.get("resources/tickets.csv"));
         int newID = Integer.parseInt(data.get(data.size() - 1).split(",")[0]) + 1;
