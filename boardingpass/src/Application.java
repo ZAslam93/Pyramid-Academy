@@ -40,6 +40,7 @@ public class Application {
     }
 
     // Ensures phone numbers are set to a 3 digit, 3 digit, 4 digit format
+    //EX 832-999-9999 passes | 100-10000-0 fails
     public static boolean checkPhoneFormat(String input) {
         final String REGEX = "\\d{3}-\\d{3}-\\d{4}";
         Pattern p = Pattern.compile(REGEX);
