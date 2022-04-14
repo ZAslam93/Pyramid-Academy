@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="C:\Users\zubul\IdeaProjects\GenSparkProjects\HTMLassignment\html\index.js"></script>
+  <link rel="stylesheet" href="C:\Users\zubul\IdeaProjects\GenSparkProjects\HTMLassignment\css\demo.css">
+  <title>Customer Registration</title>
+</head>
+<body>
+  <h2 style="text-align:center">Customer Registration</h2>
+  <div id="design">
+
+    <form>
+      <label for="first-name">First Name</label>
+      <input type="text" id="first-name"placeholder="First Name">
+      <label for="last-name">Last Name</label>
+      <input type="text" id="last-name" placeholder="Last Name">
+      <label for="email">Email</label>
+      <input type="text" id="email" placeholder="Email">
+      <label for="Country"></label>
+      <select name="country-select" id="country select">
+        <option selected disabled value="hidden">--Select a country--</option>
+        <option value="Canada">Canada</option>
+        <option value="USA">United States</option>
+        <option value="Mexico">Mexico</option>
+      </select>
+      <button id="submit-button" value="Submit" onclick="render()">Register</button>
+    </form>
+  </div>
+  <div id="show-form" class="showtxt"></div>
+</body>
+</html>
